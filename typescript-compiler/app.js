@@ -1,5 +1,6 @@
 "use strict";
-var age;
-age = 30;
-var userName = 'Maximilian';
-console.log(userName);
+var _a;
+const button = document.querySelector('button');
+(_a = button) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => {
+    console.log('Clicked!');
+});
