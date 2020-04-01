@@ -55,6 +55,9 @@
     "noEmitOnError": true,
 
     /* Strict Type-Checking Options */
+    /*
+      Setting strict to true is the same as setting all the options in "Strict Type-Checking Options" to true
+    */
     "strict": true,                           /* Enable all strict type-checking options. */
     // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
     // "strictNullChecks": true,              /* Enable strict null checks. */
