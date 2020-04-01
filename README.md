@@ -140,3 +140,5 @@ Automatic understands what type a variable have when created with a core type
 const number1 = 1
 // Same as const number1: number = 1
 ```
+
+## Compiler
