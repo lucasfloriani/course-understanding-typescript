@@ -29,8 +29,16 @@
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
 
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
+
+    /*
+      Used to change the directory of where are the root dir from ts files
+      and where they need to be generated
+    */
     // "outDir": "./",                        /* Redirect output structure to the directory. */
     // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "outDir": "./dist",
+    "rootDir": "./src", // Only checks for files in this folder when this options is added
+
     // "composite": true,                     /* Enable project compilation */
     // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
     // "removeComments": true,                /* Do not emit comments to output. */
