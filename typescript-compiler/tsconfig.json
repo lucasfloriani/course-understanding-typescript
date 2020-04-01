@@ -47,6 +47,13 @@
     // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
     // "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
 
+    /*
+      Extra option that wasn't in boilerplate tsconfig file
+      Dont create js files if has an error
+    */
+    // "noEmitOnError": false, // Default value
+    "noEmitOnError": true,
+
     /* Strict Type-Checking Options */
     "strict": true,                           /* Enable all strict type-checking options. */
     // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
