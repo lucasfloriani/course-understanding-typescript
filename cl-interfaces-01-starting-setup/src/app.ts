@@ -10,7 +10,7 @@
 
 // user1 = {
 //   name: 'Max',
-//   age: 30,
+//   age: 30, // Can't add extra fields in literal object when using interfaces, only can add extra fields in classes
 //   greet(phrase: string) {
 //     console.log(phrase + ' ' + this.name)
 //   },
