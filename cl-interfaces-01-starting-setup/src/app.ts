@@ -20,9 +20,12 @@
 
 // ==============================================================
 
-interface Greetable {
+interface Named {
   // Readonly = can only be add the value once in the initialization
   readonly name: string // Can`t add public, private, protected
+}
+
+interface Greetable extends Named {
   greet(phrase: string): void
 }
 
@@ -43,7 +46,7 @@ class Person implements Greetable {
 let user1: Greetable
 
 user1 = new Person('Max')
-user1.name = 'Manu' // Error by readonly in name from interface
+// user1.name = 'Manu' // Error by readonly in name from interface
 
 user1.greet('Hi there - I am')
 console.log(user1)
