@@ -20,6 +20,17 @@
 
 // ==============================================================
 
+// OBS: Types for function types is more used often
+// type AddFn = (a: number, b: number) => number
+interface AddFn {
+  // Understands that this interface has a anonymous function that will use the interface name keyword
+  (a: number, b: number): number
+}
+
+let add: AddFn
+
+add = (n1: number, n2: number) => n1 + n2
+
 interface Named {
   // Readonly = can only be add the value once in the initialization
   readonly name: string // Can`t add public, private, protected
