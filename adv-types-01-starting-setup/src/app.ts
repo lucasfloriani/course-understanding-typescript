@@ -135,3 +135,18 @@ const userInputElement = document.getElementById('user-input')
 if (userInputElement) {
   (userInputElement as HTMLInputElement).value = 'Hi there!'
 }
+
+// Index Properties
+// Can store any property key name but need to be in a specific type
+// OBS: Only accept key type as strings, numbers or symbols
+interface ErrorContainer { // { email: 'Not a valid email', username: 'Must start with a character' }
+  // id: string
+  // age: number // Not valid when using Index property
+  [prop: string]: string
+}
+
+const errorBag: ErrorContainer = {
+  1: 'Not a valid email', // 1 can be interpreted as a string so is a valid property
+  email: 'Not a valid email',
+  username: 'Must start with a capital character!'
+}
