@@ -16,7 +16,8 @@
 
 // Generic Function
 // function merge(objA: object, objB: object) {
-function merge<T, U>(objA: T, objB: U) {
+// function merge<T, U>(objA: T, objB: U) {
+function merge<T extends object, U extends object>(objA: T, objB: U) { // Generic constraints
   return Object.assign(objA, objB)
 }
 
@@ -28,6 +29,11 @@ console.log(merge({ name: 'Max' }, { age: 30 }))
 // mergedObj.name
 
 // const mergedObj = merge<{ name: string, hobbies: string[]}, { age: number }, number>({ name: 'Max', hobbies: ['Sports'] }, { age: 30 })
+// const mergedObj = merge({ name: 'Max', hobbies: ['Sports'] }, { age: 30 })
+// console.log(mergedObj.name)
+// console.log(mergedObj.age)
+
+// Generic constraints
+// const mergedObj = merge({ name: 'Max', hobbies: ['Sports'] }, 30)
 const mergedObj = merge({ name: 'Max', hobbies: ['Sports'] }, { age: 30 })
-console.log(mergedObj.age)
 console.log(mergedObj.name)
