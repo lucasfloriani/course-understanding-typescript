@@ -63,43 +63,43 @@ function extractAndConvert<T extends object, U extends keyof T>(obj: T, key: U) 
 
 console.log(extractAndConvert({ name: 'Max' }, 'name'))
 
-// class DataStorage<T> {
-class DataStorage<T extends string | number | boolean> {
-  private data: T[] = []
+// // class DataStorage<T> {
+// class DataStorage<T extends string | number | boolean> {
+//   private data: T[] = []
 
-  addItem(item: T) {
-    this.data.push(item)
-  }
+//   addItem(item: T) {
+//     this.data.push(item)
+//   }
 
-  // Has problem with reference types like objects and arrays
-  removeItem(item: T) {
-    if (this.data.indexOf(item) === -1) {
-      return
-    }
-    this.data.splice(this.data.indexOf(item), 1)
-  }
+//   // Has problem with reference types like objects and arrays
+//   removeItem(item: T) {
+//     if (this.data.indexOf(item) === -1) {
+//       return
+//     }
+//     this.data.splice(this.data.indexOf(item), 1)
+//   }
 
-  getItems() {
-    return [...this.data]
-  }
-}
+//   getItems() {
+//     return [...this.data]
+//   }
+// }
 
-const textStorage = new DataStorage<string>()
-// textStorage.addItem(10) // Error
-textStorage.addItem('Max')
-textStorage.addItem('Manu')
-textStorage.removeItem('Max')
-console.log(textStorage.getItems())
+// const textStorage = new DataStorage<string>()
+// // textStorage.addItem(10) // Error
+// textStorage.addItem('Max')
+// textStorage.addItem('Manu')
+// textStorage.removeItem('Max')
+// console.log(textStorage.getItems())
 
-const numberStorage = new DataStorage<number>()
+// const numberStorage = new DataStorage<number>()
 
-// const objStorage = new DataStorage<object>()
-// const maxObj = { name: 'Max' }
-// objStorage.addItem(maxObj)
-// objStorage.addItem({ name: 'Manu' })
-// // ...
-// objStorage.removeItem(maxObj)
-// console.log(objStorage.getItems())
+// // const objStorage = new DataStorage<object>()
+// // const maxObj = { name: 'Max' }
+// // objStorage.addItem(maxObj)
+// // objStorage.addItem({ name: 'Manu' })
+// // // ...
+// // objStorage.removeItem(maxObj)
+// // console.log(objStorage.getItems())
 
 // Generic Utility Types
 // Link has more than this two examples
@@ -125,3 +125,37 @@ function createCourseGoal(title: string, description: string, date: Date): Cours
 const names: Readonly<string[]> = ['Max', 'Anna']
 // names.push('Manu') // Error when tried to change the value
 // names.pop()
+
+
+// Generic Types vs Union Types
+// Generic Types can be used to lock a certain type of the generic used
+
+// Union way
+// // Can't strict one of the types easily from the union to be used
+// class DataStorage {
+//   // private data: (string | number | boolean)[] = []
+//   private data: string[] | number[] | boolean[] = []
+
+//   addItem(item: string | number | boolean) {
+//     this.data.push(item)
+//   }
+
+//   removeItem(item: string | number | boolean) {
+//     if (this.data.indexOf(item) === -1) {
+//       return
+//     }
+//     this.data.splice(this.data.indexOf(item), 1)
+//   }
+
+//   getItems() {
+//     return [...this.data]
+//   }
+// }
+
+// const textStorage = new DataStorage()
+// textStorage.addItem('Max')
+// textStorage.addItem('Manu')
+// textStorage.removeItem('Max')
+// console.log(textStorage.getItems())
+
+// const numberStorage = new DataStorage()
