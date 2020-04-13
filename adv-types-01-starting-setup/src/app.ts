@@ -66,6 +66,15 @@ const fetchedUserData = {
 // console.log(fetchedUserData.job && fetchedUserData.job.title)
 console.log(fetchedUserData?.job?.title)
 
+// Nullish Coalescing
+// const userInput = null // undefined
+const userInput = ''
+
+// const storedData = userInput || 'DEFAULT' // Can be wrong when is a falsy value
+const storedData = userInput ?? 'DEFAULT' // Get default value only when value is null or undefined
+
+console.log(storedData)
+
 
 // type UnknownEmployee = Employee | Admin
 
