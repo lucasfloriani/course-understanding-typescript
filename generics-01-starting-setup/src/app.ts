@@ -100,3 +100,28 @@ const numberStorage = new DataStorage<number>()
 // // ...
 // objStorage.removeItem(maxObj)
 // console.log(objStorage.getItems())
+
+// Generic Utility Types
+// Link has more than this two examples
+// https://www.typescriptlang.org/docs/handbook/utility-types.html
+
+// Partial: is used when you have a type/interface you need to add their values separated
+// What it does?: Creates a new type when all the properties are optional
+interface CourseGoal {
+  title: string
+  description: string
+  completeUntil: Date
+}
+
+function createCourseGoal(title: string, description: string, date: Date): CourseGoal {
+  let courseGoal: Partial<CourseGoal> = {}
+  courseGoal.title = title
+  courseGoal.description = description
+  courseGoal.completeUntil = date
+  return courseGoal as CourseGoal
+}
+
+// Readonly: Lock a type to not be changed (readonly)
+const names: Readonly<string[]> = ['Max', 'Anna']
+// names.push('Manu') // Error when tried to change the value
+// names.pop()
