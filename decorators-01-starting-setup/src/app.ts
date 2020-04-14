@@ -62,11 +62,59 @@ function Log(target: any, propertyName: string | Symbol) {
   console.log(target, propertyName)
 }
 
+// Accessor Decorator
+// + target:
+//   - Instance property: prototype of the object that was created
+//   - Static property: will refect to the constructor function instead
+// + name: Name of the accessor
+// + descriptor: Info about the property
+//   - get
+//   - set
+//   - enumerable
+//   - configurable
+function Log2(target: any, name: string, descriptor: PropertyDescriptor) {
+  console.log('Accessor decorator!')
+  console.log(target)
+  console.log(name)
+  console.log(descriptor)
+}
+
+// Method Decorator
+// + target:
+//   - Instance property: prototype of the object that was created
+//   - Static property: will refect to the constructor function instead
+// + name: Name of the accessor
+// + descriptor: Info about the property
+//   - configurable
+//   - enumerable
+//   - value (the method)
+//   - writable
+function Log3(target: any, name: string | Symbol, descriptor: PropertyDescriptor) {
+  console.log('Method decorator!')
+  console.log(target)
+  console.log(name)
+  console.log(descriptor)
+}
+
+// Parameter Decorator
+// + target:
+//   - Instance property: prototype of the object that was created
+//   - Static property: will refect to the constructor function instead
+// + name: Name of the method where this parameter is used
+// + position: Order of the parameter in the method
+function Log4(target: any, name: string | Symbol, position: number) {
+  console.log('Parameter decorator!')
+  console.log(target)
+  console.log(name)
+  console.log(position)
+}
+
 class Product {
   @Log
   title: string
   private _price: number
 
+  @Log2
   set price(val: number) {
     if (val > 0) {
       this._price = val
@@ -80,7 +128,8 @@ class Product {
     this._price = p
   }
 
-  getPriceWithTax(tax: number) {
+  @Log3
+  getPriceWithTax(@Log4 tax: number) {
     return this._price * (1 + tax)
   }
 }
