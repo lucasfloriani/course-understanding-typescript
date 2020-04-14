@@ -4,6 +4,8 @@
 // OBS 2: Decorators run when the javascript encounters the class definition, doesn't when the object is instantiated
 // OBS 3: When used multiples decorators, the order is bottom to up
 // OBS 4: Decorator Factories are executed before everything
+// OBS 5: Don't run in runtime
+// OBS 6: Is a function that is run when a class is defined
 
 // Class Decorator
 // Decorators used in classes receive one parameter (the constructor function)
@@ -133,3 +135,6 @@ class Product {
     return this._price * (1 + tax)
   }
 }
+
+const p1 = new Product('Book', 19)
+const p2 = new Product('Book', 29)
