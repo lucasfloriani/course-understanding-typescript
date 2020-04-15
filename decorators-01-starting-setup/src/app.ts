@@ -6,6 +6,8 @@
 // OBS 4: Decorator Factories are executed before everything
 // OBS 5: Don't run in runtime
 // OBS 6: Is a function that is run when a class is defined
+// OBS 7: Decorators can only return values in decorators for classes, methods and accessors,
+//        the others can return a value but will not be used
 
 // Class Decorator
 // Decorators used in classes receive one parameter (the constructor function)
@@ -95,6 +97,9 @@ function Log(target: any, propertyName: string | Symbol) {
 //   - set
 //   - enumerable
 //   - configurable
+//
+// Can return a new changed descriptor
+// function Log2(target: any, name: string, descriptor: PropertyDescriptor): PropertyDescriptor {
 function Log2(target: any, name: string, descriptor: PropertyDescriptor) {
   console.log('Accessor decorator!')
   console.log(target)
