@@ -117,6 +117,8 @@ function Log2(target: any, name: string, descriptor: PropertyDescriptor) {
 //   - enumerable
 //   - value (the method)
 //   - writable
+//
+// Can return a new changed descriptor
 function Log3(target: any, name: string | Symbol, descriptor: PropertyDescriptor) {
   console.log('Method decorator!')
   console.log(target)
@@ -164,3 +166,34 @@ class Product {
 
 const p1 = new Product('Book', 19)
 const p2 = new Product('Book', 29)
+
+
+// Method Decorator with autobind
+function Autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
+  const originalMethod = descriptor.value
+  const adjDescriptor: PropertyDescriptor = {
+    configurable: true,
+    enumerable: false,
+    get() { // get is a extra layer from addEventListener
+      // this = What is responsable to trigger this method (The Object from the Class)
+      const boundFn = originalMethod.bind(this)
+      return boundFn
+    },
+  }
+  return adjDescriptor
+}
+
+class Printer {
+  message = 'This works!'
+
+  @Autobind
+  showMessage() {
+    console.log(this.message)
+  }
+}
+
+const p = new Printer()
+
+const button = document.querySelector('button')!
+// button?.addEventListener('click', p.showMessage.bind(p))
+button?.addEventListener('click', p.showMessage)
