@@ -54,4 +54,5 @@ export class ProjectState extends State<Project>{
   }
 }
 
+// Runs once when the first import declaration is used
 export const projectState = ProjectState.getInstance()
